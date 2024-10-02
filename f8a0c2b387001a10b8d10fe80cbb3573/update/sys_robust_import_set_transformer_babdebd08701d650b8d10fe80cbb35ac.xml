@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_robust_import_set_transformer">
+    <sys_robust_import_set_transformer action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <batch_size>100</batch_size>
+        <description/>
+        <name>Intune Computing Devices</name>
+        <properties/>
+        <robust_transform_engine display_value="Intune Computing Devices">fabdebd08701d650b8d10fe80cbb35a9</robust_transform_engine>
+        <source_table>x_cipm_intune_app_computer_device_imp</source_table>
+        <sys_class_name>sys_robust_import_set_transformer</sys_class_name>
+        <sys_created_by>skye.stack.admin</sys_created_by>
+        <sys_created_on>2024-10-01 05:38:46</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>babdebd08701d650b8d10fe80cbb35ac</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Intune Computing Devices</sys_name>
+        <sys_package display_value="Intune Integration Application" source="x_cipm_intune_app">f8a0c2b387001a10b8d10fe80cbb3573</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Intune Integration Application">f8a0c2b387001a10b8d10fe80cbb3573</sys_scope>
+        <sys_update_name>sys_robust_import_set_transformer_babdebd08701d650b8d10fe80cbb35ac</sys_update_name>
+        <sys_updated_by>skye.stack.admin</sys_updated_by>
+        <sys_updated_on>2024-10-01 05:38:46</sys_updated_on>
+        <verbose>false</verbose>
+    </sys_robust_import_set_transformer>
+</record_update>

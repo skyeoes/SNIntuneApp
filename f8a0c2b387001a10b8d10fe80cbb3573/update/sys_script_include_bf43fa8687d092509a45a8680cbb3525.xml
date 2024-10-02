@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_cipm_intune_app.IntuneUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>IntuneUtils</name>
+        <script><![CDATA[var IntuneUtils = Class.create();
+IntuneUtils.prototype = {
+
+    //Setup with the information we need. This utility is intended to be "generic"
+    //and allow for the modification of what is performed based on the inputs
+    initialize: function(importTableName, dataSourceName, method, filter) {
+        this.importTableName = importTableName;
+        this.dataSourceName = dataSourceName;
+        this.method = method;
+        this.filter = filter || null;
+    },
+
+    //Trigger action, does the heavy lifting and is what will initiate all the work
+    run: function() {
+        this.createImportSet(this.importTableName, this.dataSourceName);
+        return this.getRESTMessage(this.method, this.filter);
+    },
+
+    //Will run the required intune API calls recursively based on the nextLink url
+    //Once we hit a point of no more nextLink urls, transformation will be called.
+    //an OData filter can be provided to filter the query
+    getRESTMessage: function(methodName, filter, nextLink) {
+        var restMessage = new sn_ws.RESTMessageV2('x_cipm_intune_app.Intune Graph API - READ', methodName); //Replace Intune Graph API - READ with your Outbound REST Message name
+
+        if (filter)
+            restMessage.setQueryParameter('$filter', filter);
+
+        if (nextLink)
+            restMessage.setEndpoint(nextLink);
+
+        var response = restMessage.execute();
+
+        if (response.haveError())
+            this.handleResponseError(response);
+
+        var body = response.getBody();
+        var parsedBody = JSON.parse(body) || {};
+
+        if (parsedBody.hasOwnProperty("value"))
+            this.insertResponse(parsedBody.value);
+
+        if (parsedBody.hasOwnProperty("nextLink") && !gs.nil(parsedBody.nextLink))
+            //This is where we can call the endpoint recursively if we have more data to collect
+            this.getRESTMessage(methodName, null, parsedBody.nextLink);
+
+        //if we have no more data to retrieve, we can finally run the transform
+        this.runTransformation();
+
+
+    },
+
+    //Will throw an error if something goes wrong with REST retrieval.
+    handleResponseError: function(response) {
+        var errorMessage = gs.getMessage("MS Intune REST request failed. Query: {0} | Error Code: {1} | Error Message: {2}",
+            [response.getQueryString(),
+                response.getErrorCode(),
+                response.getErrorMessage()
+            ]);
+        gs.error(errorMessage);
+        throw new Error(errorMessage);
+    },
+
+    //Will insert each response object as a row in the importSet created as part of the run function.
+    //The import set is set up as async, so transformation won't run till we're done to prevent performance issues
+    insertResponse: function(JSONBody) {
+
+        JSONBody.forEach(function(row) {
+
+            var importSetGR = new GlideRecord(this.importTableName);
+            importSetGR.initialize();
+            importSetGR.setValue('u_data', JSON.stringify(row));
+            importSetGR.setValue('sys_import_set', this.importSet.getUniqueValue());
+            importSetGR.insert();
+
+        }.bind(this));
+
+    },
+
+    //Will run all transform maps on the created import set and return the sys_id of the runner
+    runTransformation: function() {
+
+        var transformer = new GlideImportSetTransformer();
+        transformer.transformAllMaps(this.importSet);
+        var importSetRun = transformer.getImportSetRun();
+        return importSetRun.getImportSetRunSysID();
+    },
+
+    //Creates an import set run for the given table
+    //We have to provide the dataSource so RTE doesn't throw an exception
+    //Why this is needed, I'm not sure and the need for a dataSource seems arbitrary.
+    createImportSet: function(table, dataSource) {
+
+        var dataSourceGR = new GlideRecord('sys_data_source');
+        if (!dataSourceGR.get('name', dataSource))
+            throw new Error("Unable to identify data source");
+
+        var importSetGR = new GlideRecord('sys_import_set');
+        importSetGR.setValue('table_name', table);
+        importSetGR.setValue('data_source', dataSourceGR.getUniqueValue());
+        importSetGR.setValue('mode', 'asynchronous');
+        var id = importSetGR.insert();
+
+        if (id)
+            return this.importSet = importSetGR;
+
+        throw new Error("Unable to create import set: " + importSetGR.getLastErrorMessage());
+
+    },
+
+    type: 'IntuneUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>skye.stack.admin</sys_created_by>
+        <sys_created_on>2024-08-30 05:06:13</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>bf43fa8687d092509a45a8680cbb3525</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>IntuneUtils</sys_name>
+        <sys_package display_value="Intune Integration Application" source="x_cipm_intune_app">f8a0c2b387001a10b8d10fe80cbb3573</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Intune Integration Application">f8a0c2b387001a10b8d10fe80cbb3573</sys_scope>
+        <sys_update_name>sys_script_include_bf43fa8687d092509a45a8680cbb3525</sys_update_name>
+        <sys_updated_by>skye.stack.admin</sys_updated_by>
+        <sys_updated_on>2024-09-16 00:24:01</sys_updated_on>
+    </sys_script_include>
+</record_update>

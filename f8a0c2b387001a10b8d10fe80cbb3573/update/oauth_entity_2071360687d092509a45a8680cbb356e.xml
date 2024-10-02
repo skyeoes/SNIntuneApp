@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity">
+    <oauth_entity action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <access_token_lifespan>1800</access_token_lifespan>
+        <active>true</active>
+        <auth_code_lifespan>0</auth_code_lifespan>
+        <auth_url>https://login.microsoftonline.com/07ed695d-4504-4046-af50-450754ee3ffa/oauth2/v2.0/authorize</auth_url>
+        <certificate_url/>
+        <client_id>8b659c1d-c336-4206-b1c6-a87b9ae91196</client_id>
+        <client_secret>﷞﷟﷒645df6001be611101c184119b04bcb74﷬﷔1﷬﷭BGJ9hzX1QBt5Xb6ujNnLhQ==mdBE1POcCaxI__Osw0BbQyXCpzxJQWRQO_QzAlPTW9BVI1cMPcloV-5coL_jDPnF-fciturkmas=﷮﷯</client_secret>
+        <client_uuid>ac71360687d092509a45a8680cbb356d</client_uuid>
+        <code_challenge_method>S256</code_challenge_method>
+        <comments/>
+        <default_grant_type>client_credentials</default_grant_type>
+        <id_token_lifespan>0</id_token_lifespan>
+        <jwt_provider/>
+        <login_url/>
+        <logo_url/>
+        <message_signature_lifespan>0</message_signature_lifespan>
+        <mobile_client>false</mobile_client>
+        <name>Microsoft Intune READ</name>
+        <oauth_api_script/>
+        <protocol_name/>
+        <public_client>false</public_client>
+        <redirect_url>https://cpmaudev.service-now.com/oauth_redirect.do</redirect_url>
+        <refresh_token_lifespan>8640000</refresh_token_lifespan>
+        <refresh_token_url/>
+        <restricted_binding>false</restricted_binding>
+        <revoke_token_url/>
+        <salt>0</salt>
+        <send_client_credentials_as>basic_authorization_header</send_client_credentials_as>
+        <skip_authorize>false</skip_authorize>
+        <sys_class_name>oauth_entity</sys_class_name>
+        <sys_created_by>skye.stack.admin</sys_created_by>
+        <sys_created_on>2024-08-30 04:58:18</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2071360687d092509a45a8680cbb356e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Microsoft Intune READ</sys_name>
+        <sys_package display_value="Intune Integration Application" source="x_cipm_intune_app">f8a0c2b387001a10b8d10fe80cbb3573</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Intune Integration Application">f8a0c2b387001a10b8d10fe80cbb3573</sys_scope>
+        <sys_update_name>oauth_entity_2071360687d092509a45a8680cbb356e</sys_update_name>
+        <sys_updated_by>skye.stack.admin</sys_updated_by>
+        <sys_updated_on>2024-08-30 04:58:18</sys_updated_on>
+        <token_url>https://login.microsoftonline.com/07ed695d-4504-4046-af50-450754ee3ffa/oauth2/v2.0/token</token_url>
+        <type>oauth_provider</type>
+        <use_mutual_auth>false</use_mutual_auth>
+        <user/>
+    </oauth_entity>
+</record_update>
