@@ -7,7 +7,7 @@
         <auth_url>https://login.microsoftonline.com/07ed695d-4504-4046-af50-450754ee3ffa/oauth2/v2.0/authorize</auth_url>
         <certificate_url/>
         <client_id>8b659c1d-c336-4206-b1c6-a87b9ae91196</client_id>
-        <client_secret>﷞﷟﷒645df6001be611101c184119b04bcb74﷬﷔1﷬﷭BGJ9hzX1QBt5Xb6ujNnLhQ==mdBE1POcCaxI__Osw0BbQyXCpzxJQWRQO_QzAlPTW9BVI1cMPcloV-5coL_jDPnF-fciturkmas=﷮﷯</client_secret>
+        <client_secret>﷞﷟﷒98761233c3f4121050f1be13e40131e5﷬﷔1﷬﷭6YpzlUNUYQYbYEtFFOK27Q==Ywr8IlUgXZuFgqJty5VvOZxeKMC4ZenwaFDwtcTsCNwmmtw1xEn_wvIWeibCSzTQYzg1SxMwVHc=﷮﷯</client_secret>
         <client_uuid>ac71360687d092509a45a8680cbb356d</client_uuid>
         <code_challenge_method>S256</code_challenge_method>
         <comments/>
@@ -33,17 +33,15 @@
         <sys_class_name>oauth_entity</sys_class_name>
         <sys_created_by>skye.stack.admin</sys_created_by>
         <sys_created_on>2024-08-30 04:58:18</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
         <sys_id>2071360687d092509a45a8680cbb356e</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Microsoft Intune READ</sys_name>
         <sys_package display_value="Intune Integration Application" source="x_cipm_intune_app">f8a0c2b387001a10b8d10fe80cbb3573</sys_package>
         <sys_policy/>
-        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Intune Integration Application">f8a0c2b387001a10b8d10fe80cbb3573</sys_scope>
         <sys_update_name>oauth_entity_2071360687d092509a45a8680cbb356e</sys_update_name>
-        <sys_updated_by>skye.stack.admin</sys_updated_by>
-        <sys_updated_on>2024-08-30 04:58:18</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-02 00:24:28</sys_updated_on>
         <token_url>https://login.microsoftonline.com/07ed695d-4504-4046-af50-450754ee3ffa/oauth2/v2.0/token</token_url>
         <type>oauth_provider</type>
         <use_mutual_auth>false</use_mutual_auth>

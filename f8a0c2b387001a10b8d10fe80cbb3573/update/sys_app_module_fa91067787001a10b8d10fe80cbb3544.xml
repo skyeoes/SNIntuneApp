@@ -3,7 +3,6 @@
         <active>true</active>
         <application display_value="Intune Integration Application">f29106f387001a10b8d10fe80cbb356a</application>
         <assessment/>
-        <content_page/>
         <device_type/>
         <filter/>
         <hint/>
@@ -20,21 +19,17 @@
         <report/>
         <require_confirmation>true</require_confirmation>
         <roles/>
-        <survey/>
-        <survey_overwrite>true</survey_overwrite>
         <sys_class_name>sys_app_module</sys_class_name>
         <sys_created_by>skye.stack.admin</sys_created_by>
         <sys_created_on>2024-08-23 01:42:19</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
-        <sys_domain_path/>
+        <sys_domain_path>/</sys_domain_path>
         <sys_id>fa91067787001a10b8d10fe80cbb3544</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Create New</sys_name>
         <sys_overrides/>
         <sys_package display_value="Intune Integration Application" source="x_cipm_intune_app">f8a0c2b387001a10b8d10fe80cbb3573</sys_package>
         <sys_policy/>
-        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Intune Integration Application">f8a0c2b387001a10b8d10fe80cbb3573</sys_scope>
         <sys_update_name>sys_app_module_fa91067787001a10b8d10fe80cbb3544</sys_update_name>
         <sys_updated_by>skye.stack.admin</sys_updated_by>

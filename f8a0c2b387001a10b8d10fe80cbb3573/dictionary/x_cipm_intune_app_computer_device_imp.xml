@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="0423f68687d092509a45a8680cbb3520" extends="sys_import_set_row" label="Intune Computer Device Imp" max_length="40" name="x_cipm_intune_app_computer_device_imp" type="collection">
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=data" label="data" max_length="64000" name="u_data" type="json"/>
+    </element>
+</database>
